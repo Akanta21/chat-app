@@ -4,6 +4,7 @@ angular.module('chatApp')
   controller: function MainController ($scope, socket) {
     var ctrl = this
     this.msgs = []
+    this.checked = true
     this.sendMsg = function () {
       console.log(this)
       event.preventDefault()
@@ -11,7 +12,7 @@ angular.module('chatApp')
       this.text = ''
     }
     socket.on('get msg', function (data) {
-      ctrl.msgs.push(data)
+      ctrl.msgs.unshift(data)
       $scope.$digest()
     })
   }

@@ -1,11 +1,21 @@
-<h1>Chat App</h1>
-<div>
-  <form action="">
-    <input type="text" ng-model="$ctrl.userName" placeholder="name">
-    <input type="text" ng-model="$ctrl.text" placeholder="message">
-    <button ng-click="$ctrl.sendMsg()">Send</button>
-  </form>
-  <div id="chatWrap">
-    <p ng-repeat="msg in $ctrl.msgs track by $index">{{ msg.userName }} says:</br> {{ msg.text }}</p>
-  </div>
+<hr />
+<div class="row">
+  <section class="text-center col-xs-6">
+    <h1>Chat Platform</h1>
+    <form action="" id="JoinForm" class="form-inline">
+      <button class="btn btn-success" ng-click="$ctrl.checked = !$ctrl.checked" ng-show="$ctrl.checked">Join Chat!</button>
+      <fieldset ng-hide="$ctrl.checked">
+        <input type="text" class="form-control" placeholder="Your name" ng-model="$ctrl.userName" autocomplete="off">
+        <br />
+        <input type="text" class="form-control" ng-model="$ctrl.text" placeholder="say what?" autocomplete="off"  required autofocus >
+        <br />
+        <button class="btn btn-success" ng-click="$ctrl.sendMsg()" >Send</button>
+      </fieldset>
+    </form>
+  </section>
+  <section class="col-xs-6" ng-hide="$ctrl.added">
+    <div id="messages" class="text-center">
+      <p ng-repeat="msg in $ctrl.msgs track by $index" class="alert alert-success"><strong>{{ msg.userName }}:</strong></br>{{ msg.text }}</p>
+    </div>
+  </section>
 </div>
