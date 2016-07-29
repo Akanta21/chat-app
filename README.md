@@ -16,4 +16,4 @@ Please install the following:
 * `npm install`
 * `bower install`
 
-#For more info: https://angularchatapp.herokuapp.com/
+#For more info, please check out: https://angularchatapp.herokuapp.com/
